@@ -8,6 +8,8 @@ public class deaths_natural_disasters extends PApplet {
     }
 
     Table table;
+    DataBroker dB = new DataBroker();
+    DataBroker db = new DataBroker(this,dB);
 
     @Override
     public void settings() {
@@ -18,7 +20,10 @@ public class deaths_natural_disasters extends PApplet {
     public void setup() {
         super.setup();
 
-        table= loadTable("csv-deaths-natural-disasters.csv","header,csv");
+
+        db.loadData();
+
+/*
         println(table.getColumnCount());
 for(TableRow row: table.rows()){
 String CountryName = row.getString("Country Name");
@@ -30,7 +35,7 @@ for(int i =1;i<117;i++){
 println(table.getColumnTitle(i)+": "+year);
 
 }}
-
+*/
     }
 
     @Override
