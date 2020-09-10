@@ -3,13 +3,14 @@ import processing.data.Table;
 import processing.data.TableRow;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class DataBroker  {
     Table table;
     PApplet p;
     DataBroker db;
-  //  Map<String,Map<Integer,>>
+  Map<String,Map<Integer,Data>> map;
     DataBroker(){}
 DataBroker(PApplet p,DataBroker dB){
   this.p=p;
@@ -41,7 +42,9 @@ DataBroker(PApplet p,DataBroker dB){
 
     }
     void putData(String key1,int key2,int data){
-        key1 ="-1";
+map.putIfAbsent(key1, new Map<Integer, Data>()) {
+})
+        map.get(key1).put(key2,new Data(key1,key2,data));
         ArrayList<Data> dataList = new ArrayList<>();
 
 //p.println(key1 +" "+key2+" "+data );
