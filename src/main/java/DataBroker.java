@@ -3,11 +3,13 @@ import processing.data.Table;
 import processing.data.TableRow;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class DataBroker  {
     Table table;
     PApplet p;
     DataBroker db;
+  //  Map<String,Map<Integer,>>
     DataBroker(){}
 DataBroker(PApplet p,DataBroker dB){
   this.p=p;
