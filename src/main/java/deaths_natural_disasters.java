@@ -8,8 +8,8 @@ public class deaths_natural_disasters extends PApplet {
     }
 
     Table table;
-    DataBroker dB = new DataBroker();
-    DataBroker db = new DataBroker(this,dB);
+    DataBroker dB = new DataBroker(this);
+
 
     @Override
     public void settings() {
@@ -21,8 +21,8 @@ public class deaths_natural_disasters extends PApplet {
         super.setup();
 
 
-        db.loadData();
-
+        dB.loadData();
+        dB.getData("AFGHANISTAN",2014);
 /*
         println(table.getColumnCount());
 for(TableRow row: table.rows()){
