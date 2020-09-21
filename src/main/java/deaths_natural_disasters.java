@@ -2,6 +2,8 @@ import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
 
+import javax.swing.*;
+
 public class deaths_natural_disasters extends PApplet {
     public static void main(String[] args ) {
         PApplet.main("deaths_natural_disasters");
@@ -22,7 +24,10 @@ public class deaths_natural_disasters extends PApplet {
 
 
         dB.loadData();
-        dB.getData("AFGHANISTAN",2014);
+
+        String country = JOptionPane.showInputDialog("Please input Country: ");
+        String year = JOptionPane.showInputDialog("Please input year: ");
+        dB.getData(country,year);
 /*
         println(table.getColumnCount());
 for(TableRow row: table.rows()){

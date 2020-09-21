@@ -43,16 +43,17 @@ DataBroker(PApplet p){
     void putData(String key1,int key2,int data){
         String key = key1+key2;
         map.put(key,new Data(key1,key2,data));
-    //    System.out.println(map.get(key));
+        //system.out.println(map.get(key));
 
 //p.println(key);
     }
-    void getData(String key1,int key2){
+    void getData(String key1,String key2){
         String key = key1+key2;
           Data result =map.get(key);
-        System.out.println(result.Country);
+        if(result!=null){
+          System.out.println(result.Country);
           System.out.println(result.year);
-          System.out.println(result.deaths);
+          System.out.println(result.deaths);}
     }
     void getAll(String key1){
 
