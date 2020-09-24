@@ -7,59 +7,72 @@ import processing.data.TableRow;
 import javax.swing.*;
 
 public class deaths_natural_disasters extends PApplet {
-    public static void main(String[] args ) {
+    public static void main(String[] args) {
         PApplet.main("deaths_natural_disasters");
     }
 
-    Table table;
-    DataBroker dB = new DataBroker(this);
-    InputField iF = new InputField(this);
-    PFont font;
+    int width = 1000;
+    int height = 1000;
+    int baseInputWidth = 400;
+    int baseInputHeight = 50;
+    String inputStringC;
+    String inputStringY;
 
+    DataBroker dB = new DataBroker(this);
+    InputField iFCountry = new InputField(this, width /4, 50, baseInputWidth, baseInputHeight,"Country");
+    InputField iFYear = new InputField(this, width/4, 110, baseInputWidth, baseInputHeight,"Year");
+    PFont font;
+    Displayer displayer = new Displayer(iFCountry, iFYear,dB);
+    boolean iCountryCheck, iYearCheck;
 
     @Override
     public void settings() {
         super.settings();
-        size(500,500);
+        size(width, height);
     }
+
 
     @Override
     public void setup() {
         super.setup();
 
-        font = createFont("Georgia",20);
+        font = createFont("Comic Sans", 20);
         dB.loadData();
-/*
-        String country = JOptionPane.showInputDialog("Please input Country: ");
-        String year = JOptionPane.showInputDialog("Please input year: ");
-        dB.getData(country,year);*/
-/*
-        println(table.getColumnCount());
-for(TableRow row: table.rows()){
-String CountryName = row.getString("Country Name");
-
-
-for(int i =1;i<117;i++){
-    String year = row.getString(i);
-    if( year.length()!=0)
-println(table.getColumnTitle(i)+": "+year);
-
-}}
-*/
     }
+
 
     @Override
     public void draw() {
-        background(0);
+        background(255);
         textFont(font);
-iF.display();
+        displayer.display(inputStringC,inputStringY);
+
     }
+
+    public void mousePressed(){
+        iYearCheck = false;
+        iCountryCheck = false;
+        iCountryCheck =iFCountry.mouseCollision(mouseX,mouseY);
+        iYearCheck= iFYear.mouseCollision(mouseX,mouseY);
+
+        }
+
 
     @Override
     public void keyTyped(){
-        iF.input(true,key);
+
+        if(iCountryCheck == true)
+        inputStringC= iFCountry.input(true,key);
+        if(iYearCheck == true)
+        inputStringY = iFYear.input(true,key);
+
     }
     public void keyReleased(){
-        iF.input(false,key);
+
+        if(iCountryCheck == true)
+        iFCountry.input(false,key);
+        if(iYearCheck == true)
+        iFYear.input(false,key);
+
     }
 }

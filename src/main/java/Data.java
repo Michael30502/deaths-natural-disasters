@@ -5,8 +5,9 @@ public class Data {
 
     Data(String Country, int year, int deaths){
 
-this.Country = Country;
-this.year = year;
-this.deaths=deaths;
+        this.Country = Country;
+        this.year = year;
+        this.deaths=deaths;
+
     }
 }
