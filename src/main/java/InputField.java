@@ -28,7 +28,7 @@ public class InputField {
                if((type.equals("Country")&&inputString.length()<29)||(type.equals("Year")&&inputString.length()<4)) {
                    inputString += key;
 
-                   inputString = inputString.replaceAll("[^\\p{javaWhitespace}\\p{Alnum}]", "");
+                   inputString = inputString.replaceAll("[^\\p{javaWhitespace}\\p{Alnum}(-)]", "");
                    inputString = inputString.toUpperCase();
 
                }
