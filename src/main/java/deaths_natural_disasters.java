@@ -19,10 +19,11 @@ public class deaths_natural_disasters extends PApplet {
     String inputStringY;
 
     DataBroker dB = new DataBroker(this);
+    Graph graph = new Graph(this,dB);
     InputField iFCountry = new InputField(this, width /4, 50, baseInputWidth, baseInputHeight,"Country");
     InputField iFYear = new InputField(this, width/4, 110, baseInputWidth, baseInputHeight,"Year");
     PFont font;
-    Displayer displayer = new Displayer(iFCountry, iFYear,dB);
+    Displayer displayer = new Displayer(iFCountry, iFYear,dB,graph);
     boolean iCountryCheck, iYearCheck;
 
     @Override
@@ -47,9 +48,7 @@ public class deaths_natural_disasters extends PApplet {
         textFont(font);
         displayer.display(inputStringC,inputStringY);
 
-    }
-
-    public void mousePressed(){
+    }public void mousePressed(){
         iYearCheck = false;
         iCountryCheck = false;
         iCountryCheck =iFCountry.mouseCollision(mouseX,mouseY);
