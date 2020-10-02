@@ -34,7 +34,7 @@ public class InputField {
                  //  inputString = inputString.toUpperCase();
 
                }
-           } else {
+           } else if(key == '\b') {
                if (inputString.length() >= 1)
                    inputString = inputString.substring(0, inputString.length() - 1);
 

@@ -43,6 +43,8 @@ DataBroker(PApplet p){
     }
     String[] getData(String key1,String key2){
         String ans1 ="Invalid",ans2 = "Invalid",ans3="Invalid";
+        if(key1 !=null)
+        key1 = key1.toUpperCase();
         String key = key1+key2;
           Data result =map.get(key);
         if(result!=null){
